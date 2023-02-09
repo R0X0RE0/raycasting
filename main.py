@@ -1,17 +1,15 @@
 import math
 import pygame, sys, os
-import equations as eq
 from classes import *
 from defaults import *
+from equations import *
 pygame.init()
 
-class Ray:
-    def __init__(self, angle):
-        self.angle = angle
-    def cast(self):
-        ox, oy = PLAYER.rect.center
-    def update(self):
-        self.cast()
+def raycast():
+    for wall in walls:
+        rot_pos = rot_x, rot_y = PLAYER.rect.centerx - math.dist(PLAYER.rect.center, wall.rect.center) * math.sin(angle_rad), PLAYER.rect.centery - math.dist(PLAYER.rect.center, wall.rect.center) * math.cos(angle_rad)
+        pygame.draw.line(screen, WHITE, PLAYER.rect.center, (rot_x * 1.5, rot_y * 1.5))
+
 
 display = pygame.display
 display.init()
@@ -98,8 +96,8 @@ while True:
     if debug is True:
         screen.blit(text.render("Debug Mode is ON", False, WHITE, BLACK), (0,0))
         pygame.draw.rect(screen, RED, PLAYER.rect, 1)
-        pygame.draw.line(screen, WHITE, PLAYER.rect.center, 
-        (PLAYER.rect.centerx - rx * math.sin(angle_rad), PLAYER.rect.centery - ry * math.cos(angle_rad)))
+        raycast()
+        
     pygame.display.flip()
     clock.tick(60)
         

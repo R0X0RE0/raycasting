@@ -21,6 +21,10 @@ ROCKS = "assets/rocks.png"
 BRICKS = "assets/bricks.png"
 MARKER = "assets/player.png"
 
+FOV = math.pi / 3
+HALF_FOV = FOV / 2
+CASTED_RAYS = 10
+MAX_DEPTH = 10
 
 DEF_IMG_SIZE = (96,96)
 
