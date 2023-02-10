@@ -35,7 +35,7 @@ for i in range(len(map1)):
 theta = 0
 ROT_VALUE = 5
 debug = False
-text = pygame.font.Font(os.path.join(cwd, "assets/NotoSans.ttf"), 15)
+text = pygame.font.Font(os.path.join(cwd, "fonts/NotoSans.ttf"), 15)
 
 while True:
     angle_rad = theta * math.pi / 180

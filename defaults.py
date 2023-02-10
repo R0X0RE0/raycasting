@@ -15,9 +15,6 @@ WHITE = 222,200,255
 BLUE = 34,28,200
 
 # TEXTURES
-DIRT = "assets/ground.png"
-WALL1 = "assets/boundary.png"
-WALL2 = "assets/wall.png"
 ROCKS = "assets/rocks.png"
 BRICKS = "assets/bricks.png"
 MARKER = "assets/player.png"
