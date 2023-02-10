@@ -1,14 +1,14 @@
-import pygame, math
+import pygame, math, random
 # GameSprite inherits the PyGame Sprite class
 class GameSprite(pygame.sprite.Sprite):
-    def __init__(self, x, y, image, width=32, height=32, width_div=20, height_div=15):
+    def __init__(self, x, y, image, tile_size):
         pygame.sprite.Sprite.__init__(self)
-        self.x = x
-        self.y = y
+        self.tile_size = tile_size
+        self.x = x * tile_size
+        self.y = y * tile_size
         self.image = pygame.image.load(image)
-        self.rect = pygame.Rect(x,y,32,32)
-        self.rect.left = self.x * (width / width_div)
-        self.rect.top = self.y * (height / height_div)
+        self.rect = pygame.Rect(self.x,self.y,32,32)
+        
 
 # OBJECT CLASSES
 # Block is the class that will be raycasted as walls.
@@ -70,24 +70,5 @@ class Player(GameSprite):
         self.image = pygame.transform.rotate(image_clean, angle)
         old_center = self.rect.center
         self.rect = image_clean.get_rect(center = old_center)
-
-# RAYCAST MAP
-map1 = [
-    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,1,1,1,1,1,1,1,1,1,0,0,1,1,1,0,0,1],
-    [1,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,1],
-    [1,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,1],
-    [1,0,0,1,1,1,1,1,1,1,1,1,0,0,1,0,0,1,1,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1],
-    [1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-    [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
-]
 grounds = []
 walls = []
