@@ -79,7 +79,6 @@ while True:
     if (keys[pygame.K_d]):
         PLAYER.rotate(os.path.join(cwd, MARKER), theta)
         theta -= ROT_VALUE
-        print(theta)
         if (theta < -360):
             theta += 360
     
@@ -96,6 +95,8 @@ while True:
     if debug is True:
         screen.blit(text.render("Debug Mode is ON", False, WHITE, BLACK), (0,0))
         pygame.draw.rect(screen, RED, PLAYER.rect, 1)
+        pygame.draw.line(screen, BLUE, PLAYER.rect.center,
+                (PLAYER.rect.centerx - 100 * math.sin(angle_rad), PLAYER.rect.centery - 100 * math.cos(angle_rad)), 5)
         raycast()
         
     pygame.display.flip()
