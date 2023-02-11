@@ -80,7 +80,7 @@ while True:
         genMap(GROUND, WALLSPRITE)
     
     # Debug Shortcut : Shift D
-    if (mods and pygame.KMOD_SHIFT and keys[pygame.K_d]):
+    if (keys[pygame.K_p]):
         pygame.time.delay(250)
         if debug is True:
             debug = False

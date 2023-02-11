@@ -1,5 +1,7 @@
 from classes import *
 def genMap(ground, wall):
+    walls.clear()
+    grounds.clear()
     x = 0
     y= 0
     map_elements = ["#", "_"]
@@ -18,7 +20,6 @@ def genMap(ground, wall):
         map_row = ""
     for i in range(len(map1)):
         for j in range(len(map1[i])):
-            print(map1[i])
             if map1[i][j] == '_':
                 Floor(ground, x, y)
             elif map1[i][j] == '#':
