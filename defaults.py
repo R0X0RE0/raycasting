@@ -18,7 +18,7 @@ MARKER = "assets/player.png"
 
 TILE_SIZE = 32
 MAP_SIZE = 12
-FOV = math.pi / 4
+FOV = 120
 HALF_FOV = FOV / 2
 CASTED_RAYS = 120
 MAX_DEPTH = 16
