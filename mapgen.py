@@ -1,6 +1,8 @@
 from classes import *
 from defaults import *
 def genMap(ground, wall):
+    grounds.clear()
+    walls.clear()
     x = 0
     y= 0
     map_elements = ["#", "_"]
