@@ -7,10 +7,16 @@ from mapgen import *
 pygame.init()
 
 def raycast():
-    for wall in walls:
-        rot_x = PLAYER.rect.centerx - wall.rect.left * math.sin(angle_rad)
-        rot_y = PLAYER.rect.centery - wall.rect.top * math.cos(angle_rad)
-        pygame.draw.line(screen, WHITE, PLAYER.rect.center, (rot_x * 1.5, rot_y * 1.5))
+    start_x = PLAYER.rect.centerx
+    start_y = PLAYER.rect.centery
+    length = 100
+    dir_x = start_x - length * math.sin(angle_rad)
+    dir_y = start_y - length * math.cos(angle_rad)
+    for ray in range(CASTED_RAYS):
+        rot_angle = (theta + ray) * math.pi / 180
+        rot_x = start_x * math.cos(rot_angle) - start_y * math.sin(rot_angle)
+        rot_y = start_x * math.sin(rot_angle)
+        pygame.draw.line(screen, WHITE, PLAYER.rect.center, (rot_x, rot_y))
 
 
 display = pygame.display
