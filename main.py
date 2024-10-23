@@ -1,3 +1,10 @@
+#                            DEV ROADMAP
+###################################################################
+# - Implement a maze generator
+# - Rewrite the collision detection
+# - Add raycasting collision detection
+# - Add raycasting 3D graphics
+
 import math
 import pygame, sys, os
 from classes import *
